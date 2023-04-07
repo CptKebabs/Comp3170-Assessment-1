@@ -1,5 +1,7 @@
 package comp3170.ass1.sceneobjects;
 
+import org.joml.Matrix4f;
+
 import comp3170.SceneObject;
 
 public class Scene extends SceneObject {
@@ -8,9 +10,11 @@ public class Scene extends SceneObject {
 	 * Construct the scene with this object as root.
 	 */
 	public Scene() {
-		// Example: draw world axes (remove this from your final submission) 
-		Axes worldAxes = new Axes();
+		Tree tree = new Tree();
+		tree.setParent(this);
+		Axes worldAxes = new Axes();// Example: draw world axes (remove this from your final submission)
 		worldAxes.setParent(this);
+
 	}
 	
 	/**
