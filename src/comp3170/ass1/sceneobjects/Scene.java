@@ -12,8 +12,8 @@ public class Scene extends SceneObject {
 	public Scene() {
 		Tree tree = new Tree();
 		tree.setParent(this);
-		Axes worldAxes = new Axes();// Example: draw world axes (remove this from your final submission)
-		worldAxes.setParent(this);
+		//Axes worldAxes = new Axes();// Example: draw world axes (remove this from your final submission)
+		//worldAxes.setParent(this);
 
 	}
 	
