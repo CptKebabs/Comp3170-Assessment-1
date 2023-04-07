@@ -15,7 +15,7 @@ import comp3170.Shader;
 import comp3170.ass1.shaders.ShaderLibrary;
 
 public class Tree extends SceneObject{
-
+	
 		//LEAF
 		private static final int NSIDES = 20;
 		private static final float leafRadius = 0.4f;

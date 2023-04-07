@@ -29,7 +29,7 @@ public class Assignment1 implements IWindowListener {
 	@Override
 	public void init() {
 		// configure GL
-		glClearColor(0,0,0,1); // Black 
+		glClearColor(47f/255f,120f/255f,5f/255f,1); // dark green 
 		scene = new Scene();
 	}
 
