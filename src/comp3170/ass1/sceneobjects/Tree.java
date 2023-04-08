@@ -97,6 +97,7 @@ public class Tree extends SceneObject{
 			
 		}
 		
+		@Override
 		protected void drawSelf(Matrix4f matrix) {//
 			leafShader.enable();
 			leafShader.setUniform("u_mvpMatrix", matrix);

@@ -8,13 +8,17 @@ import comp3170.SceneObject;
 
 
 public class Scene extends SceneObject {
-
+	
+	static River river;
 	static ArrayList<Tree> trees;
 	static final int numTrees = 1000;
 	/**
 	 * Construct the scene with this object as root.
 	 */
 	public Scene() {
+//		river = new River();
+//		river.setParent(this);
+		
 		ArrayList<Tree> trees = new ArrayList<Tree>();
 		for(int i = 0; i < numTrees; i++) {
 			Tree tree = new Tree(); 
@@ -25,10 +29,8 @@ public class Scene extends SceneObject {
 			tree.setParent(this);
 			trees.add(tree);
 		}
-		
-		for(int i = 0; i < trees.size(); i++) {
-			
-		}
+		river = new River();
+		river.setParent(this);
 		//Axes worldAxes = new Axes();// Example: draw world axes (remove this from your final submission)
 		//worldAxes.setParent(this);
 
