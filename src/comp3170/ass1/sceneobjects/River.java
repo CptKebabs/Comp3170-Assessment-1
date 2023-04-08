@@ -61,7 +61,7 @@ public class River extends SceneObject{
 		
 		int j = 0;
 		riverVertices = new Vector4f[NPOINTSRIVER*2];
-		for(int i = 0; i < NPOINTSRIVER; i++) {
+		for(int i = 0; i < NPOINTSRIVER; i++) {//                 base width        variable according to y value
 			riverVertices[j++] = new Vector4f(riverPoints[i].x - ((RIVERWIDTH/2f) + (RIVERWIDTH/2f)*(1f-(i/(float)NPOINTSRIVER))),riverPoints[i].y,0f,1f);//point to the left
 			riverVertices[j++] = new Vector4f(riverPoints[i].x + ((RIVERWIDTH/2f) + (RIVERWIDTH/2f)*(1f-(i/(float)NPOINTSRIVER))),riverPoints[i].y,0f,1f);//point to the right
 		}
@@ -81,11 +81,14 @@ public class River extends SceneObject{
 	@Override
 	protected void drawSelf(Matrix4f matrix) {		
 		Vector2f screenSize = new Vector2f(Assignment1.width,Assignment1.height);
+			
+		
 		riverShader.enable();
 		riverShader.setUniform("u_mvpMatrix", matrix);
 	    riverShader.setAttribute("a_position", riverVertexBuffer);	    
 		riverShader.setUniform("u_waterColour", riverColour);
 		riverShader.setUniform("u_rippleColour", riverRippleColour);
+		riverShader.setUniform("u_time", Assignment1.wTimeState);
 		//riverShader.setUniform("u_screenSize", screenSize);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, riverIndexBuffer);
 	    glDrawElements(GL_TRIANGLES, riverIndices.length, GL_UNSIGNED_INT, 0);
