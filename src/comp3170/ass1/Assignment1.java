@@ -41,11 +41,12 @@ public class Assignment1 implements IWindowListener {
 	@Override
 	public void draw() {
 		long time = System.currentTimeMillis();
-		float deltaTime = (float)(time - oldTime) / 1000f;//I understand how to use this to make a framerate independent animation however whenever
-		oldTime = time;									  //I try to add deltaTime to my wTimeState variable, wTimeState becomes a very large constant 
-		wTimeState += 0.016;						  //1.68095386E9. I had this same problem in every implementation of this deltaTime system in 
-		System.out.println(wTimeState);					  // earlier weeks. Strangely it works in the examples that are given. I'm most likely at error here
-		glClear(GL_COLOR_BUFFER_BIT);					  // just put this here to clarify why I'm using a constant value instead
+		float deltaTime = (float)(time - oldTime) / 1000f;	//I understand how to use this to make a framerate independent animation however whenever
+		oldTime = time;									  	//I try to add deltaTime to my wTimeState variable, wTimeState becomes a very large constant 
+		wTimeState += 0.016;						  	  	//1.68095386E9. I had this same problem in every implementation of this deltaTime system in 
+		Scene.helicopterRotorBottomMatrix.rotateZ(3f*0.016f);	// earlier weeks. It works in the examples that are given. I'm 100% at error here
+		Scene.helicopterRotorTopMatrix.rotateZ(3f*-0.016f);	// just put this here to clarify why I'm using a constant value instead
+		glClear(GL_COLOR_BUFFER_BIT);					  	
 		scene.draw(mvpMatrix);
 	}
 

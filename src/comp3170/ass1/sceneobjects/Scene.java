@@ -15,6 +15,10 @@ public class Scene extends SceneObject {
 	static HelicopterRotor helicopterRotorBottom;
 	static ArrayList<Tree> trees;
 	static final int numTrees = 1000;
+	
+	public static Matrix4f helicopterRotorTopMatrix;
+	public static Matrix4f helicopterRotorBottomMatrix;
+	public static Matrix4f helicopterBodyMatrix;
 	/**
 	 * Construct the scene with this object as root.
 	 */
@@ -38,16 +42,18 @@ public class Scene extends SceneObject {
 		
 		helicopterBody = new HelicopterBody();
 		helicopterBody.setParent(this);
+		helicopterBodyMatrix = helicopterBody.getMatrix();
+		helicopterBodyMatrix.scale(0.075f);
 		
 		helicopterRotorTop = new HelicopterRotor();
 		helicopterRotorTop.setParent(helicopterBody);
-		Matrix4f helicopterRotorTopMatrix = helicopterRotorTop.getMatrix();
-		helicopterRotorTopMatrix.translate(-.55f,0f,0f);
+		helicopterRotorTopMatrix = helicopterRotorTop.getMatrix();
+		helicopterRotorTopMatrix.translate(-.55f,0f,0f);//move rotor to position on helicopter
 		
 		helicopterRotorBottom = new HelicopterRotor();
 		helicopterRotorBottom.setParent(helicopterBody);
-		Matrix4f helicopterRotorBottomMatrix = helicopterRotorBottom.getMatrix();
-		helicopterRotorBottomMatrix.translate(.55f,0f,0f);
+		helicopterRotorBottomMatrix = helicopterRotorBottom.getMatrix();
+		helicopterRotorBottomMatrix.translate(.55f,0f,0f);//move rotor to position on helicopter
 		
 		//TODO TRANSFORM ROTORS
 		//Axes worldAxes = new Axes();// Example: draw world axes (remove this from your final submission)
