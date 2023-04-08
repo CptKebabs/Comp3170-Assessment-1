@@ -17,8 +17,8 @@ public class Assignment1 implements IWindowListener {
 	public static final float TAU = (float) (2 * Math.PI);		// https://tauday.com/tau-manifesto
 
 	private Window window;
-	private int width = 1000;
-	private int height = 1000;
+	public static int width = 1000;
+	public static int height = 1000;
 	private Scene scene;
 
 	public Assignment1() throws OpenGLException {
