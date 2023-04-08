@@ -22,8 +22,7 @@ public class Assignment1 implements IWindowListener {
 	private Scene scene;
 	
 	private long oldTime = 0;
-	private static float asd = 3055065f;
-	public static float wTimeState = 30f;
+	public static float wTimeState = 0f;
 
 	public Assignment1() throws OpenGLException {
 		window = new Window("Assignment 1", width, height, this);
@@ -45,8 +44,8 @@ public class Assignment1 implements IWindowListener {
 		float deltaTime = (float)(time - oldTime) / 1000f;//I understand how to use this to make a framerate independent animation however whenever
 		oldTime = time;									  //I try to add deltaTime to my wTimeState variable, wTimeState becomes a very large constant 
 		wTimeState += 0.016;						  //1.68095386E9. I had this same problem in every implementation of this deltaTime system in 
-		System.out.println(wTimeState);					  // earlier weeks. Strangely it works in the examples that are given. Im most likely at error here
-		glClear(GL_COLOR_BUFFER_BIT);					  // just put this here to clarify why im using a constant value instead
+		System.out.println(wTimeState);					  // earlier weeks. Strangely it works in the examples that are given. I'm most likely at error here
+		glClear(GL_COLOR_BUFFER_BIT);					  // just put this here to clarify why I'm using a constant value instead
 		scene.draw(mvpMatrix);
 	}
 

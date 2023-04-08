@@ -10,6 +10,9 @@ import comp3170.SceneObject;
 public class Scene extends SceneObject {
 	
 	static River river;
+	static HelicopterBody helicopterBody;
+	static HelicopterRotor helicopterRotorTop;
+	static HelicopterRotor helicopterRotorBottom;
 	static ArrayList<Tree> trees;
 	static final int numTrees = 1000;
 	/**
@@ -29,8 +32,24 @@ public class Scene extends SceneObject {
 			tree.setParent(this);
 			trees.add(tree);
 		}
+		
 		river = new River();
 		river.setParent(this);
+		
+		helicopterBody = new HelicopterBody();
+		helicopterBody.setParent(this);
+		
+		helicopterRotorTop = new HelicopterRotor();
+		helicopterRotorTop.setParent(helicopterBody);
+		Matrix4f helicopterRotorTopMatrix = helicopterRotorTop.getMatrix();
+		helicopterRotorTopMatrix.translate(-.55f,0f,0f);
+		
+		helicopterRotorBottom = new HelicopterRotor();
+		helicopterRotorBottom.setParent(helicopterBody);
+		Matrix4f helicopterRotorBottomMatrix = helicopterRotorBottom.getMatrix();
+		helicopterRotorBottomMatrix.translate(.55f,0f,0f);
+		
+		//TODO TRANSFORM ROTORS
 		//Axes worldAxes = new Axes();// Example: draw world axes (remove this from your final submission)
 		//worldAxes.setParent(this);
 
